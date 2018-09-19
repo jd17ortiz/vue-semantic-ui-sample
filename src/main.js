@@ -5,6 +5,8 @@ import router from './router'
 import 'fomantic-ui/dist/semantic.css'
 
 import 'fomantic-ui/dist/semantic.js'
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 
