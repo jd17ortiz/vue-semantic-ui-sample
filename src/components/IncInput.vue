@@ -1,7 +1,9 @@
 <template>
-  <div class="field" :class="{ 'error': hasErrors }">
+  <div class="field" :class="classes">
     <label v-if="label">{{label}}</label>
-    <input :type="type" :placeholder="placeholder" v-model="text" @input="onInput">
+    <slot>
+      <input :type="type" :placeholder="placeholder" v-model="text" @input="onInput">
+    </slot>
   </div>
 </template>
 <script>
@@ -10,6 +12,7 @@ export default {
   props: {
     value: {},
     label: {},
+    styleClasses: {},
     placeholder: {},
     type: {},
     validate: { type: Object }
@@ -27,6 +30,14 @@ export default {
   computed: {
     hasErrors () {
       return this.validate && this.validate.$invalid && this.validate.$dirty
+    },
+    classes () {
+      let result = ''
+      if (this.hasErrors) {
+        result += 'error'
+      }
+      result += ' ' + this.styleClasses
+      return result
     }
   },
   methods: {
