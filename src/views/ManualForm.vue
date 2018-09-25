@@ -20,20 +20,16 @@
             </div>
           </div>
           <div class="ui grid">
-            <div class="four wide column">
-              <div class="field" :class="{ 'error': $v.age.$invalid && $v.age.$dirty }">
-                <label>Age</label>
-                <input type="number" v-model="age" @input="$v.age.$touch()">
-              </div>
+            <div class="field four wide column" :class="{ 'error': $v.age.$invalid && $v.age.$dirty }">
+              <label>Age</label>
+              <input type="number" v-model="age" @input="$v.age.$touch()">
             </div>
-            <div class="eight wide column">
-              <div class="field">
-                <label>Kite brand</label>
-                <select class="ui fluid search dropdown" v-model="kiteBrand">
-                  <option value="">Please select</option>
-                  <option v-for="brand in kiteBrands" :key="brand.value" :value="brand.value">{{brand.label}}</option>
-                </select>
-              </div>
+            <div class="field eight wide column">
+              <label>Kite brand</label>
+              <select class="ui fluid search dropdown" v-model="kiteBrand">
+                <option value="">Please select</option>
+                <option v-for="brand in kiteBrands" :key="brand.value" :value="brand.value">{{brand.label}}</option>
+              </select>
             </div>
             <div class="four wide column">
               <div class="field">
